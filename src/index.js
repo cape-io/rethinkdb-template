@@ -26,7 +26,7 @@ function createTable({r, dbTables, db, table, indexes}) {
       dbTables.contains(table), true, r.db(db).tableCreate(table)
     ),
   }).merge({
-    indexes: r.db(db).table(table).indexList().do(processIndexes),
+    indexes: indexes ? r.db(db).table(table).indexList().do(processIndexes) : null,
   });
 }
 
