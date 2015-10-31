@@ -1,0 +1,34 @@
+{
+  "name": "rethinkdb-template",
+  "version": "0.0.1",
+  "description": "Ensure RethinkDB contains databases, tables, and indexes defined in template.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel src --out-dir lib",
+    "prepublish": "npm run compile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cape-io/rethinkdb-template.git"
+  },
+  "keywords": [
+    "rethinkdb"
+  ],
+  "author": "Kai Curry <kai@cape.io> (https://www.cape.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cape-io/rethinkdb-template/issues"
+  },
+  "homepage": "https://github.com/cape-io/rethinkdb-template#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.3",
+    "babel-preset-stage-2": "^6.0.14",
+    "eslint": "^1.8.0",
+    "eslint-config-airbnb": "0.x",
+    "eslint-plugin-import": "^0.8.1"
+  }
+}
