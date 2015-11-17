@@ -16,17 +16,23 @@ function createIndex({r, db, table, dbIndexes, index, value}) {
 
 // Step 3.
 // Create table if it's missing.
-function createTable({r, dbTables, db, table, indexes}) {
+function createTable({r, dbTables, db, table, indexes, options}) {
+  const tableCreateOptions = {
+    primaryKey: 'id',
+    ...options,
+  };
+
   function processIndexes(dbIndexes) {
     return map(indexes, info => createIndex({r, db, table, dbIndexes, ...info}));
   }
   return r({
     table,
     result: r.branch(
-      dbTables.contains(table), true, r.db(db).tableCreate(table)
+      dbTables.contains(table), true, r.db(db).tableCreate(table, tableCreateOptions)
     ),
   }).merge({
     indexes: indexes ? r.db(db).table(table).indexList().do(processIndexes) : null,
+    options: tableCreateOptions,
   });
 }
 

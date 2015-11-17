@@ -25,6 +25,9 @@ var template = [
       },
       {
         table: 'provider',
+        options: {
+          primaryKey: '_id',
+        },
       },
     ],
   },
